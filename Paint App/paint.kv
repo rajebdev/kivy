@@ -1,0 +1,149 @@
+#:import C kivy.utils.get_color_from_hex
+
+# In paint.kv
+
+
+<ColorButton@RadioButton>:
+    group: 'color'
+    on_press: app.canvas_widget.set_color(self.color_paint)
+    background_normal: 'color_button_normal.png'
+    background_down: 'color_button_down.png'
+    border: (3, 3, 3, 3)
+
+<LineWidthButton@RadioButton>:
+    group: 'line_width'
+    font_size: 12
+    on_press: app.canvas_widget.set_line_width(self.text)
+    color: C('#2C3E50')
+    background_normal: 'color_button_normal.png'
+    background_down: 'color_button_down.png'
+    background_color: C('#bdc3c7')
+    border: (3, 3, 3, 3)
+
+<ShapeButton@RadioButton>:
+    group: 'shape'
+    font_size: 12
+    on_press: app.canvas_widget.set_shape(self.text)
+    background_normal: 'color_button_normal.png'
+    background_down: 'color_button_down.png'
+    background_color: C('#ff1493')
+    border: (3, 3, 3, 3)
+
+<CanvasWidget>:
+    background_color: C('#ffffff')
+    Button:
+        text: 'Delete'
+        font_size: 12
+        right: root.right
+        top: root.top
+        width: 80
+        height: 40
+        on_press: root.clear_canvas()
+        background_color: C('#e74c3c')
+        background_normal: 'color_button_normal.png'
+        background_down: 'button_down.png'
+    BoxLayout:
+        orientation: 'horizontal'
+        top: root.top
+        x: 250
+        width: 100
+        height: 40
+        Button:
+            text: 'Save as PNG'
+            font_size: 12
+            on_press: root.save_png()
+            background_color: C('#27AE60')
+            background_normal: 'color_button_normal.png'
+            background_down: 'button_down.png'
+    BoxLayout:
+        orientation: 'horizontal'
+        top: root.top
+        x: 400
+        width: 280
+        height: 40
+        ShapeButton:
+            text: 'Line'
+            state: 'down'
+        ShapeButton:
+            text: 'Circle'
+        ShapeButton:
+            text: 'Rectangle'
+        ShapeButton:
+            text: 'Triangle'
+
+
+
+    BoxLayout:
+        orientation: 'horizontal'
+        padding: 3
+        spacing: 3
+        x: 0
+        y: 0
+        width: root.width
+        height: 40
+        ColorButton:
+            background_color: C('#2980b9')
+            state: 'down'
+            color_paint: C('#2980b9')
+        ColorButton:
+            background_color: C('#16A085')
+            color_paint: C('#16A085')
+        ColorButton:
+            background_color: C('#27AE60')
+            color_paint: C('#27AE60')
+        ColorButton:
+            background_color: C('#f39c12')
+            color_paint: C('#f39c12')
+        ColorButton:
+            background_color: C('#d35400')
+            color_paint: C('#d35400')
+        ColorButton:
+            background_color: C('#c0392b')
+            color_paint: C('#c0392b')
+        ColorButton:
+            background_color: C('#8e44ad')
+            color_paint: C('#8e44ad')
+        ColorButton:
+            background_color: C('#bdc3c7')
+            color_paint: C('#bdc3c7')
+        ColorButton:
+            background_color: C('#000000')
+            color_paint: C('#000000')
+        ColorButton:
+            background_color: C('#7fff00')
+            color_paint: C('#7fff00')
+        ColorButton:
+            background_color: C('#00008b')
+            color_paint: C('#00008b')
+        ColorButton:
+            background_color: C('#ff1493')
+            color_paint: C('#ff1493')
+        ColorButton:
+            background_color: C('#ffd700')
+            color_paint: C('#ffd700')
+        ColorButton:
+            background_color: C('#ff0000')
+            color_paint: C('#ff0000')
+        ColorButton:
+            background_color: C('#f08080')
+            color_paint: C('#f08080')
+        ColorButton:
+            background_color: C('#808080')
+            color_paint: C('#808080')
+    
+    BoxLayout:
+        orientation: 'horizontal'
+        padding: 2
+        spacing: 2
+        x: 0
+        top: root.top
+        width: 200
+        height: 40
+        LineWidthButton:
+            text: 'Thin'
+        LineWidthButton:
+            text: 'Normal'
+            state: 'down'
+        LineWidthButton:
+            text: 'Thick'
+

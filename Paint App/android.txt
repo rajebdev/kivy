@@ -1,0 +1,3 @@
+title=Paint
+author=Ark Team
+orientation=landscape
